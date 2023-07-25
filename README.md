@@ -3,6 +3,7 @@
 ## Features:
 
 • Design of the game window using PyQt5 toolkit
+
 • OOP
 
 
