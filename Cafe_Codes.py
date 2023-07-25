@@ -11,11 +11,12 @@ class Cafe(QMainWindow):
         self.cafe_win = Cafe_Design.Ui_winCafe()
         self.cafe_win.setupUi(self)
 
-        self.cash = 0
+        self.cash = 397
         self.options = "🍔"
 
         self.serv_speed = 10
         self.shoes_fee = 400
+        self.shoes_bought = False
 
         self.serv_x = 430
         self.serv_y = 330
@@ -30,7 +31,7 @@ class Cafe(QMainWindow):
 
         self.ready_y = 760
 
-        self.hamburger_fee = 3
+        self.hamb_fee = 3
         self.hamb_upgrade_fee = 3
         self.hamb_progress = 0
         self.hamb_level = 1
@@ -66,18 +67,18 @@ class Cafe(QMainWindow):
 
         self.cafe_win.btnStart.clicked.connect(self.new_customer)
 
-        self.cafe_win.btnToaster.clicked.connect(lambda: self.upgrade_frame("hamburger", self.cafe_win.frmUpgradeHamburgers))
-        self.cafe_win.btnUpgradeHamb.clicked.connect(self.upgrade_hamburgers)
+        self.cafe_win.btnToaster.clicked.connect(lambda: self.upgrade_frame("hamburger", '', self.cafe_win.frmUpgradeHamburgers))
+        self.cafe_win.btnUpgradeHamb.clicked.connect(lambda: self.upgrade(self.hamb_fee, self.hamb_upgrade_fee, self.hamb_level, self.hamb_progress, self.cafe_win.btnUpgradeHamb, self.cafe_win.lblHambFee, self.cafe_win.lblHambLevel, self.cafe_win.prgHambLevel, "hamb"))
         self.cafe_win.btnCloseHamb.clicked.connect(lambda: self.hide_upgrade(self.cafe_win.frmUpgradeHamburgers))
 
-        self.cafe_win.btnFrier.clicked.connect(lambda: self.upgrade_frame("fries", [self.cafe_win.frmOpenFrier, self.cafe_win.frmUpgradeFries]))
-        self.cafe_win.btnUpgradeFries.clicked.connect(self.upgrade_fries)
+        self.cafe_win.btnFrier.clicked.connect(lambda: self.upgrade_frame("fries", self.cafe_win.btnFrier, [self.cafe_win.frmOpenFrier, self.cafe_win.frmUpgradeFries]))
+        self.cafe_win.btnUpgradeFries.clicked.connect(lambda: self.upgrade(self.fries_fee, self.fries_upgrade_fee, self.fries_level, self.fries_progress, self.cafe_win.btnUpgradeFries, self.cafe_win.lblFriesFee, self.cafe_win.lblFriesLevel, self.cafe_win.prgFriesLevel, "fries"))
         self.cafe_win.btnCloseFries.clicked.connect(lambda: self.hide_upgrade(self.cafe_win.frmUpgradeFries))
         self.cafe_win.btnOpenFrier.clicked.connect(self.open_frier)
         self.cafe_win.btnCloseFrier.clicked.connect(lambda: self.hide_upgrade(self.cafe_win.frmOpenFrier))
 
-        self.cafe_win.btnOven.clicked.connect(lambda: self.upgrade_frame("pizza", [self.cafe_win.frmOpenOven, self.cafe_win.frmUpgradePizza]))
-        self.cafe_win.btnUpgradePizza.clicked.connect(self.upgrade_pizza)
+        self.cafe_win.btnOven.clicked.connect(lambda: self.upgrade_frame("pizza", self.cafe_win.btnOven, [self.cafe_win.frmOpenOven, self.cafe_win.frmUpgradePizza]))
+        self.cafe_win.btnUpgradePizza.clicked.connect(lambda: self.upgrade(self.pizza_fee, self.pizza_upgrade_fee, self.pizza_level, self.pizza_progress, self.cafe_win.btnUpgradePizza, self.cafe_win.lblPizzaFee, self.cafe_win.lblPizzaLevel, self.cafe_win.prgPizzaLevel, "pizza"))
         self.cafe_win.btnClosePizza.clicked.connect(lambda: self.hide_upgrade(self.cafe_win.frmUpgradePizza))
         self.cafe_win.btnOpenOven.clicked.connect(self.open_oven)
         self.cafe_win.btnCloseOven.clicked.connect(lambda: self.hide_upgrade(self.cafe_win.frmOpenOven))
@@ -114,7 +115,7 @@ class Cafe(QMainWindow):
             self.order_details['ready_x'] = 146
             self.order_details['pt'] = 2000
             self.order_details['lbl'] = self.cafe_win.lblHambReady
-            self.order_details['fee'] = self.hamburger_fee
+            self.order_details['fee'] = self.hamb_fee
 
         elif what == "🍟":
             self.order_details['fetch_x'] = 486
@@ -179,17 +180,15 @@ class Cafe(QMainWindow):
 
             self.cash += self.order_details['fee']
 
-            if self.cash >= self.shoes_fee:
-                self.cafe_win.btnBetterShoes.setStyleSheet("color: rgb(25, 25, 222);")
-            else:
-                self.cafe_win.btnBetterShoes.setStyleSheet("color: rgb(255, 1, 1);")
+            if not self.shoes_bought:
+                self.set_color(self.cafe_win.btnBetterShoes, self.shoes_fee)
 
-            if self.cash >= self.hamb_upgrade_fee and self.cafe_win.btnUpgradeHamb.text() != "MAX":
-                self.cafe_win.btnUpgradeHamb.setStyleSheet("color: rgb(25, 25, 222);")
-            if self.cash >= self.open_frier_fee:
-                self.cafe_win.btnOpenFrier.setStyleSheet("color: rgb(25, 25, 222);")
-            if self.cash >= self.fries_upgrade_fee and self.cafe_win.btnUpgradeFries.text() != "MAX":
-                self.cafe_win.btnUpgradeFries.setStyleSheet("color: rgb(25, 25, 222);")
+            self.set_color(self.cafe_win.btnUpgradeHamb, self.hamb_upgrade_fee)
+            self.set_color(self.cafe_win.btnOpenFrier, self.open_frier_fee)
+            self.set_color(self.cafe_win.btnUpgradeFries, self.fries_upgrade_fee)
+            self.set_color(self.cafe_win.btnOpenOven, self.open_oven_fee)
+            self.set_color(self.cafe_win.btnUpgradePizza, self.pizza_upgrade_fee)
+
             self.cafe_win.lblMoney.setText(f"🪙 £ {self.cash}")
             self.service_timer.stop()
             self.cafe_win.lblOrder.setHidden(True)
@@ -207,83 +206,47 @@ class Cafe(QMainWindow):
             self.done_timer.stop()
             self.new_customer()
 
-    def upgrade_frame(self, what, frm):
+    def upgrade_frame(self, what, btn, frm):
         if what == "fries" or what == "pizza":
-            if self.cafe_win.btnFrier.text() == "💢":
+            if btn.text() == "💢":
                 frm[0].setHidden(False)
             else:
                 frm[1].setHidden(False)
         else:
             frm.setHidden(False)
 
-    def upgrade_hamburgers(self):
-        if self.cash >= self.hamb_upgrade_fee and self.hamb_progress != 100:
-            self.cash -= self.hamb_upgrade_fee
-            if self.cash <= self.hamb_upgrade_fee and self.cafe_win.btnUpgradeHamb.text() != "MAX":
-                self.cafe_win.btnUpgradeHamb.setStyleSheet("color: rgb(255, 1, 1);")
-            self.hamb_upgrade_fee *= 2
-            self.hamburger_fee += self.hamburger_fee // 2
-            self.hamb_progress += 10
-            self.hamb_level += 1
-            self.cafe_win.lblHambFee.setText(f"🪙 £ {self.hamburger_fee}")
-            self.cafe_win.btnUpgradeHamb.setText(f"UPGRADE 🪙 £ {self.hamb_upgrade_fee}")
-            if self.hamb_progress == 100:
-                self.cafe_win.lblHambLevel.setText("Level MAX")
-                self.cafe_win.btnUpgradeHamb.setText("MAX")
-                self.cafe_win.btnUpgradeHamb.setStyleSheet("color: rgb(200, 200, 200);")
-                self.cafe_win.btnUpgradeHamb.setEnabled(False)
+    def upgrade(self, fee, upgrade_fee, level, progress, btn, lbl_fee, lbl_level, prg, attribute):
+        if self.cash >= upgrade_fee and progress != 100:
+            self.cash -= upgrade_fee
+            self.set_color(btn, upgrade_fee)
+            upgrade_fee *= 2
+            fee += fee // 2
+            progress += 10
+            level += 1
+            lbl_fee.setText(f"🪙 £ {fee}")
+            btn.setText(f"UPGRADE 🪙 £ {upgrade_fee}")
+            if progress == 100:
+                lbl_level.setText("Level MAX")
+                btn.setText("MAX")
+                btn.setStyleSheet("color: rgb(200, 200, 200);")
+                btn.setEnabled(False)
             else:
-                self.cafe_win.lblHambLevel.setText(f"Level {self.hamb_level}")
-            self.cafe_win.prgHambLevel.setValue(self.hamb_progress)
+                lbl_level.setText(f"Level {level}")
+            prg.setValue(progress)
             self.cafe_win.lblMoney.setText(f"🪙 £ {self.cash}")
+            setattr(self, f'{attribute}_fee', fee)
+            setattr(self, f'{attribute}_upgrade_fee', upgrade_fee)
+            setattr(self, f'{attribute}_level', level)
+            setattr(self, f'{attribute}_progress', progress)
         else:
             print("You don't have enough money to upgrade this!")
 
-    def upgrade_fries(self):
-        if self.cash >= self.fries_upgrade_fee and self.fries_progress != 100:
-            self.cash -= self.fries_upgrade_fee
-            if self.cash <= self.fries_upgrade_fee and self.cafe_win.btnUpgradeFries.text() != "MAX":
-                self.cafe_win.btnUpgradeFries.setStyleSheet("color: rgb(255, 1, 1);")
-            self.fries_upgrade_fee *= 2
-            self.fries_fee += self.fries_fee // 2
-            self.fries_progress += 10
-            self.fries_level += 1
-            self.cafe_win.lblFriesFee.setText(f"🪙 £ {self.fries_fee}")
-            self.cafe_win.btnUpgradeFries.setText(f"UPGRADE 🪙 £ {self.fries_upgrade_fee}")
-            if self.fries_progress == 100:
-                self.cafe_win.lblFriesLevel.setText("Level MAX")
-                self.cafe_win.btnUpgradeHamb.setText("MAX")
-                self.cafe_win.btnUpgradeFries.setStyleSheet("color: rgb(200, 200, 200);")
-                self.cafe_win.btnUpgradeFries.setEnabled(False)
-            else:
-                self.cafe_win.lblFriesLevel.setText(f"Level {self.fries_level}")
-            self.cafe_win.prgFriesLevel.setValue(self.fries_progress)
-            self.cafe_win.lblMoney.setText(f"🪙 £ {self.cash}")
+    def set_color(self, btn, upgrade_fee):
+        if self.cash >= upgrade_fee and btn.text() != "MAX":
+            style = "color: rgb(25, 25, 222);"
         else:
-            print("You don't have enough money to upgrade this!")
-
-    def upgrade_pizza(self):
-        if self.cash >= self.pizza_upgrade_fee and self.pizza_progress != 100:
-            self.cash -= self.pizza_upgrade_fee
-            if self.cash <= self.pizza_upgrade_fee and self.cafe_win.btnUpgradePizza.text() != "MAX":
-                self.cafe_win.btnUpgradePizza.setStyleSheet("color: rgb(255, 1, 1);")
-            self.pizza_upgrade_fee *= 2
-            self.pizza_fee += self.pizza_fee // 2
-            self.pizza_progress += 10
-            self.pizza_level += 1
-            self.cafe_win.lblPizzaFee.setText(f"🪙 £ {self.pizza_fee}")
-            self.cafe_win.btnUpgradePizza.setText(f"UPGRADE 🪙 £ {self.pizza_upgrade_fee}")
-            if self.pizza_progress == 100:
-                self.cafe_win.lblPizzaLevel.setText("Level MAX")
-                self.cafe_win.btnUpgradeHamb.setText("MAX")
-                self.cafe_win.btnUpgradePizza.setStyleSheet("color: rgb(200, 200, 200);")
-                self.cafe_win.btnUpgradePizza.setEnabled(False)
-            else:
-                self.cafe_win.lblPizzaLevel.setText(f"Level {self.pizza_level}")
-            self.cafe_win.prgPizzaLevel.setValue(self.pizza_progress)
-            self.cafe_win.lblMoney.setText(f"🪙 £ {self.cash}")
-        else:
-            print("You don't have enough money to upgrade this!")
+            style = "color: rgb(255, 1, 1);"
+        btn.setStyleSheet(style)
 
     def hide_upgrade(self, frm):
         frm.setHidden(True)
@@ -308,6 +271,8 @@ class Cafe(QMainWindow):
 
     def shoes(self):
         if self.cash >= self.shoes_fee:
+            self.cash -= self.shoes_fee
+            self.shoes_bought = True
             self.serv_speed = 5
             self.cafe_win.btnBetterShoes.setEnabled(False)
             self.cafe_win.btnBetterShoes.setStyleSheet("color: rgb(200, 200, 200);")
