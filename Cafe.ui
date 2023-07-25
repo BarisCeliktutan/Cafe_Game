@@ -1,0 +1,1125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>winCafe</class>
+ <widget class="QMainWindow" name="winCafe">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1920</width>
+    <height>1080</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Cosmos Cafe</string>
+  </property>
+  <property name="windowIcon">
+   <iconset theme="C:\Users\baris\Desktop\Projects\CosmosCafe\icon.png">
+    <normaloff>../icon.png</normaloff>../icon.png</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">#centralwidget{
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(52, 0, 0, 255), stop:0.113636 rgba(91, 34, 34, 255), stop:0.238636 rgba(128, 32, 32, 255), stop:0.420455 rgba(122, 42, 42, 255), stop:0.585227 rgba(174, 68, 68, 255), stop:0.693182 rgba(174, 71, 71, 255), stop:0.789773 rgba(178, 66, 66, 255), stop:0.935 rgba(239, 25, 25, 255));
+}</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLabel" name="lblTable">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>250</y>
+      <width>1800</width>
+      <height>235</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>../table.png</pixmap>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblWaiter">
+    <property name="geometry">
+     <rect>
+      <x>430</x>
+      <y>330</y>
+      <width>135</width>
+      <height>163</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>98</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>👩🏻‍🍳</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblCustomer">
+    <property name="geometry">
+     <rect>
+      <x>-134</x>
+      <y>114</y>
+      <width>135</width>
+      <height>163</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>91</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>😎</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblOrder">
+    <property name="geometry">
+     <rect>
+      <x>546</x>
+      <y>36</y>
+      <width>93</width>
+      <height>95</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>61</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>🍔</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblHambPic">
+    <property name="geometry">
+     <rect>
+      <x>218</x>
+      <y>928</y>
+      <width>53</width>
+      <height>49</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>28</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>🍔</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnStart">
+    <property name="geometry">
+     <rect>
+      <x>640</x>
+      <y>334</y>
+      <width>705</width>
+      <height>245</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Algerian</family>
+      <pointsize>123</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 181, 191);
+color: rgb(17, 40, 255);</string>
+    </property>
+    <property name="text">
+     <string>Start</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnToaster">
+    <property name="geometry">
+     <rect>
+      <x>102</x>
+      <y>904</y>
+      <width>105</width>
+      <height>113</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>76</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-color: rgb(185, 192, 255);</string>
+    </property>
+    <property name="text">
+     <string>🫕</string>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblHambReady">
+    <property name="geometry">
+     <rect>
+      <x>148</x>
+      <y>760</y>
+      <width>53</width>
+      <height>49</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>28</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>🍔</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblMoney">
+    <property name="geometry">
+     <rect>
+      <x>1596</x>
+      <y>890</y>
+      <width>297</width>
+      <height>85</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>38</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(255, 255, 0);</string>
+    </property>
+    <property name="text">
+     <string>🪙 £ 0</string>
+    </property>
+   </widget>
+   <widget class="QFrame" name="frmUpgradeHamburgers">
+    <property name="geometry">
+     <rect>
+      <x>240</x>
+      <y>766</y>
+      <width>379</width>
+      <height>197</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#frmUpgradeHamburgers{
+background-color: rgba(140, 229, 255, 120);
+}</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Box</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QProgressBar" name="prgHambLevel">
+     <property name="geometry">
+      <rect>
+       <x>6</x>
+       <y>82</y>
+       <width>369</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="value">
+      <number>0</number>
+     </property>
+     <property name="format">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblHambFee">
+     <property name="geometry">
+      <rect>
+       <x>22</x>
+       <y>120</y>
+       <width>141</width>
+       <height>39</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>16</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(125, 15, 205);</string>
+     </property>
+     <property name="text">
+      <string>🪙 £ 3</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblHamburger">
+     <property name="geometry">
+      <rect>
+       <x>132</x>
+       <y>10</y>
+       <width>109</width>
+       <height>39</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>16</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(125, 15, 205);</string>
+     </property>
+     <property name="text">
+      <string>Hamburger</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblHambLevel">
+     <property name="geometry">
+      <rect>
+       <x>8</x>
+       <y>40</y>
+       <width>103</width>
+       <height>39</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>16</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(125, 15, 205);</string>
+     </property>
+     <property name="text">
+      <string>Level 1</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btnUpgradeHamb">
+     <property name="geometry">
+      <rect>
+       <x>88</x>
+       <y>162</y>
+       <width>185</width>
+       <height>33</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(255, 1, 1);</string>
+     </property>
+     <property name="text">
+      <string>UPGRADE 🪙 £ 3</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblHambProcess">
+     <property name="geometry">
+      <rect>
+       <x>248</x>
+       <y>118</y>
+       <width>97</width>
+       <height>45</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>16</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(125, 15, 205);</string>
+     </property>
+     <property name="text">
+      <string>2 seconds</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btnCloseHamb">
+     <property name="geometry">
+      <rect>
+       <x>344</x>
+       <y>2</y>
+       <width>33</width>
+       <height>33</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>❌</string>
+     </property>
+     <property name="flat">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QFrame" name="frmUpgradeFries">
+    <property name="geometry">
+     <rect>
+      <x>664</x>
+      <y>766</y>
+      <width>379</width>
+      <height>197</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#frmUpgradeFries{
+background-color: rgba(140, 229, 255, 120);
+}</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Box</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QProgressBar" name="prgFriesLevel">
+     <property name="geometry">
+      <rect>
+       <x>6</x>
+       <y>82</y>
+       <width>369</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="value">
+      <number>0</number>
+     </property>
+     <property name="format">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblFriesFee">
+     <property name="geometry">
+      <rect>
+       <x>22</x>
+       <y>120</y>
+       <width>141</width>
+       <height>39</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>16</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(125, 15, 205);</string>
+     </property>
+     <property name="text">
+      <string>🪙 £ 8</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblFries">
+     <property name="geometry">
+      <rect>
+       <x>160</x>
+       <y>10</y>
+       <width>53</width>
+       <height>39</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>16</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(125, 15, 205);</string>
+     </property>
+     <property name="text">
+      <string>Fries</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblFriesLevel">
+     <property name="geometry">
+      <rect>
+       <x>8</x>
+       <y>40</y>
+       <width>103</width>
+       <height>39</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>16</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(125, 15, 205);</string>
+     </property>
+     <property name="text">
+      <string>Level 1</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btnUpgradeFries">
+     <property name="geometry">
+      <rect>
+       <x>88</x>
+       <y>162</y>
+       <width>185</width>
+       <height>33</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(255, 1, 1);</string>
+     </property>
+     <property name="text">
+      <string>UPGRADE 🪙 £ 18</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblFriesProcess">
+     <property name="geometry">
+      <rect>
+       <x>248</x>
+       <y>118</y>
+       <width>97</width>
+       <height>45</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>16</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(125, 15, 205);</string>
+     </property>
+     <property name="text">
+      <string>4 seconds</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btnCloseFries">
+     <property name="geometry">
+      <rect>
+       <x>344</x>
+       <y>2</y>
+       <width>33</width>
+       <height>33</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>❌</string>
+     </property>
+     <property name="flat">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QLabel" name="lblFriesReady">
+    <property name="geometry">
+     <rect>
+      <x>572</x>
+      <y>760</y>
+      <width>53</width>
+      <height>49</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>28</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>🍟</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblFriesPic">
+    <property name="geometry">
+     <rect>
+      <x>642</x>
+      <y>928</y>
+      <width>53</width>
+      <height>49</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>28</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>🍟</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnFrier">
+    <property name="geometry">
+     <rect>
+      <x>526</x>
+      <y>904</y>
+      <width>105</width>
+      <height>113</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>76</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>💢</string>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblThink">
+    <property name="geometry">
+     <rect>
+      <x>496</x>
+      <y>2</y>
+      <width>197</width>
+      <height>177</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>112</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>💭</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QFrame" name="frmOpenFrier">
+    <property name="geometry">
+     <rect>
+      <x>656</x>
+      <y>752</y>
+      <width>379</width>
+      <height>197</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#frmOpenFrier{
+background-color: rgba(140, 229, 255, 120);
+}</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Box</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLabel" name="lblOpenFrier">
+     <property name="geometry">
+      <rect>
+       <x>94</x>
+       <y>82</y>
+       <width>213</width>
+       <height>39</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>16</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(125, 15, 205);</string>
+     </property>
+     <property name="text">
+      <string>Open for 🪙 £ 125</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblFrier">
+     <property name="geometry">
+      <rect>
+       <x>160</x>
+       <y>10</y>
+       <width>53</width>
+       <height>39</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>16</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(125, 15, 205);</string>
+     </property>
+     <property name="text">
+      <string>Frier</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btnOpenFrier">
+     <property name="geometry">
+      <rect>
+       <x>92</x>
+       <y>140</y>
+       <width>185</width>
+       <height>33</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(255, 1, 1);</string>
+     </property>
+     <property name="text">
+      <string>OPEN</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btnCloseFrier">
+     <property name="geometry">
+      <rect>
+       <x>344</x>
+       <y>2</y>
+       <width>33</width>
+       <height>33</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>❌</string>
+     </property>
+     <property name="flat">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QPushButton" name="btnBetterShoes">
+    <property name="geometry">
+     <rect>
+      <x>1600</x>
+      <y>836</y>
+      <width>189</width>
+      <height>49</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="toolTip">
+     <string>Makes Cheffs
+  Walk Faster</string>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(255, 1, 1);</string>
+    </property>
+    <property name="text">
+     <string>Better Shoes 👟 £ 400</string>
+    </property>
+    <property name="flat">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnOven">
+    <property name="geometry">
+     <rect>
+      <x>946</x>
+      <y>908</y>
+      <width>105</width>
+      <height>113</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>76</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>💢</string>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QFrame" name="frmUpgradePizza">
+    <property name="geometry">
+     <rect>
+      <x>1084</x>
+      <y>770</y>
+      <width>379</width>
+      <height>197</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#frmUpgradePizza{
+background-color: rgba(140, 229, 255, 120);
+}</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Box</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QProgressBar" name="prgPizzaLevel">
+     <property name="geometry">
+      <rect>
+       <x>6</x>
+       <y>82</y>
+       <width>369</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="value">
+      <number>0</number>
+     </property>
+     <property name="format">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblPizzaFee">
+     <property name="geometry">
+      <rect>
+       <x>22</x>
+       <y>120</y>
+       <width>141</width>
+       <height>39</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>16</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(125, 15, 205);</string>
+     </property>
+     <property name="text">
+      <string>🪙 £ 50</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblPizza">
+     <property name="geometry">
+      <rect>
+       <x>160</x>
+       <y>10</y>
+       <width>53</width>
+       <height>39</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>16</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(125, 15, 205);</string>
+     </property>
+     <property name="text">
+      <string>Fries</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblPizzaLevel">
+     <property name="geometry">
+      <rect>
+       <x>8</x>
+       <y>40</y>
+       <width>103</width>
+       <height>39</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>16</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(125, 15, 205);</string>
+     </property>
+     <property name="text">
+      <string>Level 1</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btnUpgradePizza">
+     <property name="geometry">
+      <rect>
+       <x>88</x>
+       <y>162</y>
+       <width>185</width>
+       <height>33</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(255, 1, 1);</string>
+     </property>
+     <property name="text">
+      <string>UPGRADE 🪙 £ 70</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblPizzaProcess">
+     <property name="geometry">
+      <rect>
+       <x>245</x>
+       <y>118</y>
+       <width>107</width>
+       <height>45</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>16</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(125, 15, 205);</string>
+     </property>
+     <property name="text">
+      <string>10 seconds</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btnClosePizza">
+     <property name="geometry">
+      <rect>
+       <x>344</x>
+       <y>2</y>
+       <width>33</width>
+       <height>33</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>❌</string>
+     </property>
+     <property name="flat">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QLabel" name="lblPizzaPic">
+    <property name="geometry">
+     <rect>
+      <x>1062</x>
+      <y>932</y>
+      <width>53</width>
+      <height>49</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>28</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>🍕</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QFrame" name="frmOpenOven">
+    <property name="geometry">
+     <rect>
+      <x>1076</x>
+      <y>756</y>
+      <width>379</width>
+      <height>197</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#frmOpenOven{
+background-color: rgba(140, 229, 255, 120);
+}</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Box</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLabel" name="lblOpenOven">
+     <property name="geometry">
+      <rect>
+       <x>94</x>
+       <y>82</y>
+       <width>213</width>
+       <height>39</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>16</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(125, 15, 205);</string>
+     </property>
+     <property name="text">
+      <string>Open for 🪙 £ 600</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblOven">
+     <property name="geometry">
+      <rect>
+       <x>160</x>
+       <y>10</y>
+       <width>53</width>
+       <height>39</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>16</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(125, 15, 205);</string>
+     </property>
+     <property name="text">
+      <string>Oven</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btnOpenOven">
+     <property name="geometry">
+      <rect>
+       <x>92</x>
+       <y>140</y>
+       <width>185</width>
+       <height>33</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(255, 1, 1);</string>
+     </property>
+     <property name="text">
+      <string>OPEN</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btnCloseOven">
+     <property name="geometry">
+      <rect>
+       <x>344</x>
+       <y>2</y>
+       <width>33</width>
+       <height>33</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>❌</string>
+     </property>
+     <property name="flat">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QLabel" name="lblPizzaReady">
+    <property name="geometry">
+     <rect>
+      <x>996</x>
+      <y>760</y>
+      <width>53</width>
+      <height>49</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>28</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>🍕</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <zorder>lblTable</zorder>
+   <zorder>lblWaiter</zorder>
+   <zorder>btnOven</zorder>
+   <zorder>lblPizzaReady</zorder>
+   <zorder>lblPizzaPic</zorder>
+   <zorder>lblFriesPic</zorder>
+   <zorder>lblThink</zorder>
+   <zorder>lblCustomer</zorder>
+   <zorder>lblOrder</zorder>
+   <zorder>lblHambPic</zorder>
+   <zorder>btnStart</zorder>
+   <zorder>btnToaster</zorder>
+   <zorder>lblHambReady</zorder>
+   <zorder>lblMoney</zorder>
+   <zorder>frmUpgradeFries</zorder>
+   <zorder>lblFriesReady</zorder>
+   <zorder>btnFrier</zorder>
+   <zorder>frmUpgradeHamburgers</zorder>
+   <zorder>frmOpenFrier</zorder>
+   <zorder>btnBetterShoes</zorder>
+   <zorder>frmUpgradePizza</zorder>
+   <zorder>frmOpenOven</zorder>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1920</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
