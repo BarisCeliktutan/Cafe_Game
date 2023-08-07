@@ -11,7 +11,7 @@ class Cafe(QMainWindow):
         self.cafe_win = Cafe_Design.Ui_winCafe()
         self.cafe_win.setupUi(self)
 
-        self.cash = 397
+        self.cash = 0
         self.options = "🍔"
 
         self.serv_speed = 10
